@@ -1,11 +1,11 @@
 body {
-    padding-top: 20px; /* Sedikit ruang dari atas */
+    padding-top: 20px;
     background-image: url('/static/image.png');
     background-size: cover;
-    background-position: center center; /* Posisikan gambar di tengah */
-    background-repeat: no-repeat; /* Jangan ulangi gambar */
-    background-attachment: fixed; /* Gambar akan tetap diam saat di-scroll */
-    color: #000000; /* Ubah warna teks utama menjadi lebih gelap agar kontras dengan latar belakang */
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000000;
 }
 
 .container {
@@ -26,12 +26,12 @@ h1 {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.541);
     /* margin-bottom: 5px; */
-    border: 1px solid rgba(0, 0, 0, 0.125); /* Border agar lebih jelas */
-    border-radius: 5px; /* Sudut sedikit melengkung */
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
 }
 .list-group-item .actions {
     display: flex;
-    gap: 10px; /* Jarak antar tombol */
+    gap: 10px;
 }
 
 .mountain-card {
@@ -57,11 +57,11 @@ h1 {
 }
 
 .card-text-description {
-    flex-grow: 1; /* Deskripsi mengisi ruang yang tersedia */
+    flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Batasi deskripsi hingga 3 baris */
+    -webkit-line-clamp: 3; /* Batasi deskripsi 3 baris */
     -webkit-box-orient: vertical;
 }
 
@@ -85,5 +85,5 @@ display: -webkit-box;
 -webkit-box-orient: vertical;
 }
 .mountain-card {
-height: 100%; /* Pastikan semua kartu memiliki tinggi yang sama di dalam row */
+height: 100%;
 }

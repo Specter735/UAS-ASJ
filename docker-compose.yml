@@ -1,9 +1,9 @@
 # Versi sintaks Docker Compose
 version: '3.8'
 
-# Definisi layanan (services) untuk aplikasi kita
+# Definisi layanan (services) untuk aplikasi
 services:
-  # Layanan untuk aplikasi web kita
+  # Layanan untuk aplikasi web
   web:
     # Perintahkan Docker Compose untuk membangun image dari Dockerfile di direktori saat ini
     build: .
@@ -24,7 +24,7 @@ services:
     depends_on:
       - db # Pastikan kontainer 'db' berjalan sebelum 'web' mencoba terhubung
 
-  # Layanan untuk database PostgreSQL kita
+  # Layanan untuk database PostgreSQL
   db:
     # Menggunakan image PostgreSQL versi 13 (versi alpine lebih ringan)
     image: postgres:13-alpine

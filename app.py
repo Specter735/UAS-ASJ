@@ -21,7 +21,7 @@ class Mountain(db.Model):
 
 with app.app_context():
     max_retries = 10
-    retry_delay = 5 # seconds
+    retry_delay = 5 # detik
 
     for i in range(max_retries):
         try:
@@ -40,8 +40,8 @@ with app.app_context():
             else:
                 print("Max retries reached. Could not connect to database.")
                 raise
-                
-# Data contoh (opsional, bisa Anda hapus setelah aplikasi berjalan)
+
+# contoh data yg ada saat tampil nanti 
 @app.before_request
 def create_initial_data():
     if Mountain.query.count() == 0:
@@ -87,7 +87,7 @@ def add_mountain():
         db.session.add(new_mountain)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('add_mountain.html') # Ubah nama template
+    return render_template('add_mountain.html')
 
 @app.route('/edit/<int:mountain_id>', methods=['GET', 'POST'])
 def edit_mountain(mountain_id):
@@ -99,7 +99,7 @@ def edit_mountain(mountain_id):
         mountain.location = request.form['location']
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('edit_mountain.html', mountain=mountain) # Ubah nama template
+    return render_template('edit_mountain.html', mountain=mountain)
 
 @app.route('/delete/<int:mountain_id>', methods=['POST'])
 def delete_mountain(mountain_id):

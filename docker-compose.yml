@@ -1,7 +1,7 @@
-# Versi sintaks Docker Compose
+# versi sintax Docker Compose
 version: '3.8'
 
-# Definisi layanan (services) untuk aplikasi
+# layanan (services) untuk aplikasi
 services:
   # Layanan untuk aplikasi web
   web:

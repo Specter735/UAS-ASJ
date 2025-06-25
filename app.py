@@ -26,12 +26,10 @@ with app.app_context():
     for i in range(max_retries):
         try:
             print(f"Attempting to connect to database... (Attempt {i+1}/{max_retries})")
-            # Drop all existing tables (careful in production!)
             db.drop_all()
-            # Create all new tables based on your models
             db.create_all()
             print("Database tables created/updated successfully.")
-            break # Exit loop if successful
+            break 
         except Exception as e:
             print(f"Database connection or creation failed: {e}")
             if i < max_retries - 1:

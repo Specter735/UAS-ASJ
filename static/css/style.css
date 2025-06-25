@@ -1,0 +1,89 @@
+body {
+    padding-top: 20px; /* Sedikit ruang dari atas */
+    background-image: url('/static/image.png');
+    background-size: cover;
+    background-position: center center; /* Posisikan gambar di tengah */
+    background-repeat: no-repeat; /* Jangan ulangi gambar */
+    background-attachment: fixed; /* Gambar akan tetap diam saat di-scroll */
+    color: #000000; /* Ubah warna teks utama menjadi lebih gelap agar kontras dengan latar belakang */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.889);
+}
+h1 {
+    color: #08ff3d;
+    margin-bottom: 25px;
+    
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.541);
+    /* margin-bottom: 5px; */
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Border agar lebih jelas */
+    border-radius: 5px; /* Sudut sedikit melengkung */
+}
+.list-group-item .actions {
+    display: flex;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.mountain-card {
+    height: 100%;
+    background-color: rgba(184, 178, 178, 0.761);
+    border: 1px solid rgba(0, 0, 0, 0.605);
+}
+
+.card-footer {
+    background-color: rgba(95, 91, 91, 0.761);
+    border-top: none;
+    padding-top: 5;
+}
+
+.card-title, .card-text {
+    color: #000000;
+    font-weight: 450;
+}
+
+.label-teks {
+    color: #ffffff87;
+    font-weight: bold;
+}
+
+.card-text-description {
+    flex-grow: 1; /* Deskripsi mengisi ruang yang tersedia */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Batasi deskripsi hingga 3 baris */
+    -webkit-box-orient: vertical;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}
+.card-body {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: calc(100% - 200px); /* Sisa tinggi card setelah gambar */
+}
+.card-text-description {
+flex-grow: 1; /* Deskripsi mengisi ruang yang tersedia */
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+.mountain-card {
+height: 100%; /* Pastikan semua kartu memiliki tinggi yang sama di dalam row */
+}

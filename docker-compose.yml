@@ -1,0 +1,46 @@
+# Versi sintaks Docker Compose
+version: '3.8'
+
+# Definisi layanan (services) untuk aplikasi kita
+services:
+  # Layanan untuk aplikasi web kita
+  web:
+    # Perintahkan Docker Compose untuk membangun image dari Dockerfile di direktori saat ini
+    build: .
+    # Memetakan port: "Port_Host:Port_Kontainer"
+    # Ini akan membuat port 5000 di komputer Anda terhubung ke port 5000 di kontainer web
+    ports:
+      - "5000:5000"
+    # Mounting volume: "Path_Host:Path_Kontainer"
+    # Ini akan menyinkronkan kode di folder 'my_docker_app' di komputer Anda
+    # dengan folder '/app' di dalam kontainer. Berguna untuk live code changes (Tugas 6).
+    volumes:
+      - .:/app
+    # Variabel lingkungan yang akan diteruskan ke kontainer web
+    # Nilai-nilai ini akan diambil dari file .env (misalnya, POSTGRES_USER dari .env)
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${DB_PORT}/${POSTGRES_DB}
+    # Menetapkan dependensi: layanan 'web' akan dimulai setelah layanan 'db' siap
+    depends_on:
+      - db # Pastikan kontainer 'db' berjalan sebelum 'web' mencoba terhubung
+
+  # Layanan untuk database PostgreSQL kita
+  db:
+    # Menggunakan image PostgreSQL versi 13 (versi alpine lebih ringan)
+    image: postgres:13-alpine
+    # Variabel lingkungan untuk konfigurasi database PostgreSQL
+    # Nilai-nilai ini juga akan diambil dari file .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    # Volume untuk persistensi data database
+    # Ini akan menyimpan data database di volume bernama 'db_data'
+    # di Docker, sehingga data tidak hilang saat kontainer dihentikan/dihapus (Tugas 4).
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+# Definisi volume Docker
+# Volume 'db_data' akan digunakan untuk menyimpan data persisten database
+volumes:
+  db_data:
